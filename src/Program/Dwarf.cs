@@ -36,11 +36,13 @@ public class Dwarf
     public void AddItem(Item element)
     {
         this.Element.Add(element);
+        this.AmountLife += element.DefenseValue;
     }
 
     public void RemoveItem(Item element)
     {
         this.Element.Remove(element);
+        this.AmountLife -= element.DefenseValue;
     }
 
     public void ExchangeItem(Item e1, Item e2)
@@ -49,6 +51,8 @@ public class Dwarf
         if (index != -1)
         {
             this.Element[index] = e2;
+            this.AmountLife -= e1.DefenseValue;
+            this.AmountLife += e2.DefenseValue;
         }
     }
 
@@ -78,5 +82,7 @@ public class Dwarf
             this.AmountLife -= item.DamageValue;
         }
     }
+    
+    
     
 }
