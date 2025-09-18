@@ -26,10 +26,10 @@ public class Dwarf
         set { amountLife = value; }
     }
 
-    public Dwarf(string name, List<Item> elements)
+    public Dwarf(string name, List<Item> element)
     {
         this.Name = name;
-        this.Element = elements ?? new List<Item>();
+        this.Element = element ?? new List<Item>();
         this.AmountLife = initialLife;
     }
 
