@@ -28,10 +28,10 @@ public class Elf
 
     //public int VidaInicial{ get {return vidaInicial;} set { vidaInicial = value; } }
 
-    public Elf(string name, List<Item> elements)
+    public Elf(string name, List<Item> element)
     {
         this.Name = name;
-        this.Element = elements ?? new List<Item>();
+        this.Element = element ?? new List<Item>();
         this.AmountLife = initialLife;
     }
 
@@ -39,11 +39,13 @@ public class Elf
     public void AddItem(Item element)
     {
         this.Element.Add(element);
+        this.AmountLife += element.DefenseValue;
     }
 
     public void RemoveItem(Item element)
     {
         this.Element.Remove(element);
+        this.AmountLife -= element.DefenseValue;
     }
 
     public void ExchangeItem(Item e1, Item e2)
@@ -52,17 +54,19 @@ public class Elf
         if (index != -1)
         {
             this.Element[index] = e2;
+            this.AmountLife -= e1.DefenseValue;
+            this.AmountLife += e2.DefenseValue;
         }
     }
     
-    public void GetDefense(Element defense)
-    {
-        this.AmountLife += defense.Defense;
-    }
+    //public void GetDefense(Element defense)
+    //{
+     //   this.AmountLife += defense.Defense;
+    //}
 
     public void Heal()
     {
-        this.AmountLife = this.InitialLife;
+        this.AmountLife = initialLife;
     }
     
 
