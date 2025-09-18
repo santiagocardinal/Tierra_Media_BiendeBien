@@ -65,21 +65,21 @@ public class Dwarf
     {
         foreach (var item in elf.Element)
         {
-            this.AmountLife -= item.DamageValue;
+            this.AmountLife -= item.AttackValue;
         }
     }
     public void DwarfWizard(Wizard wizard)
     {
-        foreach (var item in wizard.Element)
+        foreach (var item in wizard.LstElement)
         {
-            this.AmountLife -= item.DamageValue;
+            this.AmountLife -= item.AttackValue;
         }
     }
     public void DwarfDwarf(Dwarf dwarf)
     {
         foreach (var item in dwarf.Element)
         {
-            this.AmountLife -= item.DamageValue;
+            this.AmountLife -= item.AttackValue;
         }
     }
     
